@@ -7,6 +7,8 @@ services:
       - "${OLLAMA_PORT}:11434"
     volumes:
       - ${DATA_PATH_HOST}/ollama:/root/.ollama
+    # environment:
+      # - 'OLLAMA_HOST=0.0.0.0:11434'
     networks:
       - backend
     # GPU support
