@@ -16,5 +16,5 @@ docker compose up -d
 ```
 - 进入容器
 ```
-docker compose exec -it olls /bin/bash
+docker compose exec ollama bash
 ```
