@@ -1,0 +1,42 @@
+services:
+  ### Ollama ####
+  ollama:
+    restart: always # docker启动自动重启
+    image: "ollama/ollama"
+    ports:
+      - "${OLLAMA_PORT}:11434"
+    volumes:
+      - ${DATA_PATH_HOST}/ollama:/root/.ollama
+    networks:
+      - backend
+    # GPU support
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities:
+    #             - gpu
+    
+
+  ### Open webui ####
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "${OPEN_WEBUI_PORT}:8080"
+    volumes:
+      - ${DATA_PATH_HOST}/open-webui-data:/app/backend/data
+    depends_on:
+      - ollama
+    environment:
+      - 'OLLAMA_BASE_URL=http://ollama:11434'
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: ${NETWORKS_DRIVER}
