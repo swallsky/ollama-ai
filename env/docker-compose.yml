@@ -31,8 +31,10 @@ services:
       - ollama
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434'
-    # extra_hosts:
-      # - host.docker.internal:host-gateway
+      - 'WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}'
+      - 'HF_ENDPOINT=https://hf-mirror.com'
+    extra_hosts:
+      - host.docker.internal:host-gateway
     networks:
       - backend
 
