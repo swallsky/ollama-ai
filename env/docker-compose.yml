@@ -24,6 +24,7 @@ services:
 
   ### Open webui ####
   open-webui:
+    restart: always # docker启动自动重启
     image: ghcr.io/open-webui/open-webui:main
     ports:
       - "${OPEN_WEBUI_PORT}:8080"
