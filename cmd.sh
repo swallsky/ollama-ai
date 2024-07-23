@@ -34,14 +34,14 @@ ollama_list(){
 
 # 下载并运行gemma2(9B)大模型
 gemma2_9B(){
-  # docker compose exec ollama /usr/bin/ollama pull gemma2
-  docker compose exec ollama /usr/bin/ollama run gemma2
+  docker compose exec ollama /usr/bin/ollama pull gemma2
+  # docker compose exec ollama /usr/bin/ollama run gemma2
 }
 
 # 下载并运行gemma2(27B)大模型
 gemma2_27B(){
-  # docker compose exec ollama /usr/bin/ollama pull gemma2:27b
-  docker compose exec ollama /usr/bin/ollama run gemma2:27b
+  docker compose exec ollama /usr/bin/ollama pull gemma2:27b
+  # docker compose exec ollama /usr/bin/ollama run gemma2:27b
 }
 
 # 使用说明
