@@ -15,9 +15,8 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: 1
-              capabilities:
-                - gpu
+              capabilities: ["gpu"]
+              count: all # 根据需要调整GPU数量
     
 
   ### Open webui ####
