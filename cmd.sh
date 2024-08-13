@@ -7,6 +7,11 @@ build(){
   docker compose build
 }
 
+# pull镜像
+pull(){
+  docker compose pull
+}
+
 # 启动基础服务
 start(){
 	docker compose up -d
@@ -49,6 +54,7 @@ help(){
 cat << EOF
 使用说明
     格式 ./cmd.sh command param
+    拉取镜像 pull
     编译镜像 build
     启动基础服务 start
     查看容器状态 ps
